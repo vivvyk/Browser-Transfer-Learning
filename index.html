@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Browser Transfer Learning</title>
+  </head>
+
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+
+
+
+
+  <body>
+      <div class="ui container">
+          <h1 class="ui dividing header" style="padding:10px">Transfer Learning: Create Classifier</h1>
+
+          <div class="ui active inverted dimmer" id="loading_screen">
+              <div class="ui text loader">Loading Models</div>
+          </div>
+          <p></p>
+
+          <input type="file" id="train", style="display: none;"></input>
+          <button id="addClass" class="ui red button" style="width:100%">Add Class</button>
+
+          <br />
+            <br />
+
+
+          <!-- <table id="trainingData" style="width:100%" class="train-table"> -->
+          <table id="trainingData" style="width:100%" border="3" class="ui celled inverted table">
+              <tr>
+                <td>
+                    <a class="ui blue ribbon label">Training Data</a>
+                    <br />
+                    <br />
+                    <input type="file" class="files-btn" id="files-0" name="files[]" multiple/>
+                    <br>
+                    <output id="list0"></output>
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                      <a class="ui green ribbon label">Predictions</a>
+
+                      <div id="predict-0" class="col" classname="col"></div>
+                  </td>
+                  <p> </p>
+                </tr>
+          </table>
+
+          <br />
+
+          <div class="ui buttons" style="width: 100%">
+            <button id='train_button' class="ui teal button">Train</button>
+            <button id="load_model"class="ui blue button">Load Images For Prediction</button>
+            <button id="pred_button" class="ui violet button">Predict</button>
+          </div>
+
+          <br />
+          <br />
+
+
+          <div class="ui segment" bis_skin_checked="1" style="width:25%; margin: 0 auto;">
+            <h2> Epochs </h2>
+            <input id='epoch-val' type="text" placeholder="Epochs" value="30">
+          </div>
+
+          <br />
+          <br />
+
+          <div id='loss-div' class="ui segment" style="width:25%; margin: 0 auto;">
+            <h2> Loss </h2>
+            <p id="loss-val"> You haven't trained yet! </p>
+          </div>
+
+          <br />
+          <br />
+          <div class="ui segment" id='loaded_pred' style="width:25%; margin: 0 auto;">
+              <a class="ui red ribbon label">Predict On</a>
+              <img id = 'predict_image' src="">
+          </div>
+
+
+      </div>
+
+
+
+    <input type="file" id="predict", style="display: none;"></input>
+    <div id="pred_output"></div>
+    <br>
+
+  </body>
+
+  <!-- zip.js  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.js"></script>
+
+  <!-- tensorflow-related  -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+  <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
+  <script src="index.js"></script>
+
+</html>
